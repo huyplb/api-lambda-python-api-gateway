@@ -6,7 +6,6 @@ import urllib
 class Task:
     def __init__(self):
         self.data = []
-        current_directory = os.getcwd()
         list_length = len(self.data)
         if list_length == 0:
             with open('movies.csv', 'r') as file:
@@ -57,9 +56,7 @@ class Task:
         # :Load data 
         task = [task for task in self.data if task['id'] == task_id]
         index = 0
-        
-        return responses(400,"Task not exists")
-        
+
         if task:
             index = self.data.index(task[0])
         else:
@@ -86,17 +83,17 @@ class Task:
     def delete_task(self,task_id):
         # :Load data 
         task = [task for task in self.data if task['id'] == task_id]
-        if len(task) == 0:
-            return {
-            'statusCode': 200,
-            'body': json.dumps({"status": "error", "message": "task not found"})
-        } 
-            return jsonify(), 404
-        tasks.remove(task[0])
-        return  {
-            'statusCode': 200,
-            'body': json.dumps({"status": "done", "message": "tasked"})
-        } 
+        index = 0
+
+        if task:
+            index = self.data.index(task[0])
+        else:
+            index = -1
+            
+        if index < 0:
+            return responses(400,"Task not exists")
+        self.data.remove(task[0])
+        return  responses(200,"",{'id':task_id})
 
 # Local 
 # if __name__ == '__main__':
