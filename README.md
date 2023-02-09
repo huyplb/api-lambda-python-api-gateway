@@ -190,3 +190,4 @@ Choose "Lambda Function" as the integration type and select the region where you
 
 Enter the name of your Lambda function in the "Lambda function name"
 
+<img width="1394" alt="Screen Shot 2023-02-09 at 12 51 15 PM" src="https://user-images.githubusercontent.com/32996648/217922437-aebacf8b-9b10-4c50-acc8-dbb7f5c13a23.png">
